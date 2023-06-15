@@ -1,25 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './styles/main.scss';
+import TodoCard from './components/TodoCard';
+import { HashRouter } from 'react-router-dom';
+import { TodoListProvider } from './context/TodoListContext';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     <TodoListProvider>
+        <HashRouter basename='/'>
+          <div className="container">
+            <h1 className='todo__title'>Todos</h1>
+            <TodoCard/>
+          </div>
+        </HashRouter>
+     </TodoListProvider>
   );
 }
 
